@@ -6,34 +6,46 @@
 	<version>1.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 
+	<properties>
+		<jsframework.version>1.11.9-SNAPSHOT</jsframework.version>
+	</properties>
+	
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>com.github.jlgrock.javascript-framework</groupId>
 				<artifactId>jsar-maven-plugin</artifactId>
-				<version>1.11.8</version>
+				<version>${jsframework.version}</version>
 				<extensions>true</extensions>
 			</plugin>
+
+			<!-- publishes the jsdocs -->
 			<plugin>
 				<groupId>com.github.jlgrock.javascript-framework</groupId>
-				<artifactId>jsdependency-maven-plugin</artifactId>
-				<version>1.11.8</version>
+				<artifactId>jsdocs-maven-plugin</artifactId>
+				<version>${jsframework.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>jsar</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
+
+			<!-- publishes aggregate source code into an archive -->
 			<plugin>
 				<groupId>com.github.jlgrock.javascript-framework</groupId>
-				<artifactId>closure-testing-maven-plugin</artifactId>
-				<version>1.11.8</version>
-			</plugin>
-			<plugin>
-				<groupId>com.github.jlgrock.javascript-framework</groupId>
-				<artifactId>closure-compiler-maven-plugin</artifactId>
-				<version>1.11.8</version>
-			</plugin>
-			<plugin>
-				<groupId>com.github.jlgrock.javascript-framework</groupId>
-				<artifactId>jspreprocessor-maven-plugin</artifactId>
-				<version>1.11.8</version>
+				<artifactId>source-archive-maven-plugin</artifactId>
+				<version>${jsframework.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>js-gen-source-archive</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
-	</project>
+</project>
