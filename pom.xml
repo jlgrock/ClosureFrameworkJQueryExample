@@ -7,7 +7,7 @@
 	<packaging>war</packaging>
 
 	<properties>
-		<jsframework.version>1.11.9-SNAPSHOT</jsframework.version>
+		<jsframework.version>1.11.10</jsframework.version>
 	</properties>
 	
 	<build>
