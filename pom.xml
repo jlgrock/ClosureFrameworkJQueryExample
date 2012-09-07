@@ -7,17 +7,60 @@
 	<packaging>war</packaging>
 
 	<properties>
-		<jsframework.version>1.11.13</jsframework.version>
+		<jsframework.version>1.13.0</jsframework.version>
 	</properties>
 	
 	<build>
 		<plugins>
+            <!-- Details to the maven infrastructure which versions of the
+                 plugins to use all source should go in 
+                 ${project}/src/main/javascript.
+                 This is required.
+             -->
 			<plugin>
 				<groupId>com.github.jlgrock.javascript-framework</groupId>
 				<artifactId>jsar-maven-plugin</artifactId>
 				<version>${jsframework.version}</version>
 				<extensions>true</extensions>
 			</plugin>
+            
+            <!-- Downloads the pre-packaged version of the closure library to
+                 the designated location within the target directory.
+                 This is required.
+             -->
+			<plugin>
+				<groupId>com.github.jlgrock.javascript-framework</groupId>
+				<artifactId>jsdependency-maven-plugin</artifactId>
+				<version>${jsframework.version}</version>
+			</plugin>
+
+            <!-- Compiles the code using the Closure Compiler - 
+                 This is required.
+             -->
+            <plugin>
+				<groupId>com.github.jlgrock.javascript-framework</groupId>
+				<artifactId>closure-compiler-maven-plugin</artifactId>
+				<version>${jsframework.version}</version>
+			</plugin>
+
+            <!-- The testing maven plugin - include if you are doing any testing.
+                 All tests should go in ${project}/src/test/javascript.
+             -->
+			<plugin>
+				<groupId>com.github.jlgrock.javascript-framework</groupId>
+				<artifactId>closure-testing-maven-plugin</artifactId>
+				<version>${jsframework.version}</version>
+			</plugin>
+            
+            <!-- Plugin that will remove certain sections of the code, based on users settings.  This is currently set to remove
+                 $$assert(*);
+             -->
+            <plugin>
+				<groupId>com.github.jlgrock.javascript-framework</groupId>
+				<artifactId>jspreprocessor-maven-plugin</artifactId>
+				<version>${jsframework.version}</version>
+			</plugin>
+			
 
 			<!-- publishes the jsdocs -->
 			<plugin>
