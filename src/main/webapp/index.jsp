@@ -12,16 +12,16 @@
 	<!-- Production -->
 	<script type="text/javascript" src="javascript/compiled/JQueryExample-1.0-SNAPSHOT-min.js"></script>
 <% } %>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$("p").click(
-				com.github.ClosureFrameworkJQueryExample.rotateColorFunction
-			)
-		});
-	</script>
-
+	
 </head>
 
 <body>
-	<body><p>If you click on me, I will change colors.</p></body>
+	<script type="text/javascript">
+		(function() {
+			$("p").click(
+				com.github.ClosureFrameworkJQueryExample.rotateColorFunction
+			)
+		})();
+	</script>
+	<p>If you click on me, I will change colors.</p>
 </html>

@@ -21,7 +21,7 @@ com.github.ClosureFrameworkJQueryExample.rotateColorFunction = function(obj) {
 	var colors = goog.object.getValues(goog.color.names);
 	var rgb2hex = com.github.ClosureFrameworkJQueryExample.rgb2hex;
 	for (var i = 0; i < colors.length; i=i+1) {
-		var cssColor = /**@type {string} */ $(this).css("color");
+		var cssColor = (/**@type {string} */ $(this).css("color"));
 		if (colors[i]===rgb2hex(cssColor)) {
 			if ((i+1) === colors.length) {
 				$(this).css({'color' : colors[0]});				
