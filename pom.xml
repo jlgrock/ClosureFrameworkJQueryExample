@@ -7,7 +7,7 @@
 	<packaging>war</packaging>
 
 	<properties>
-		<jsframework.version>1.15.1</jsframework.version>
+		<jsframework.version>1.17.0</jsframework.version>
 	</properties>
 	
 	<build>
