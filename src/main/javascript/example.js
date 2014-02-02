@@ -6,8 +6,17 @@
  */
 
 goog.provide("com.github.ClosureFrameworkJQueryExample");
+goog.provide('TESTING');
 goog.require("goog.color.names");
 goog.require('goog.object');
+
+/**
+ * @define {boolean} True if WTF is enabled.
+ * This should be defined to false in release builds to ensure that WTF is not
+ * compiled in at all. It flips all functions to nullFunction (or some
+ * equivalent) and will allow the compiler to strip them out.
+ */
+TESTING.ENABLED = true;
 
 /**
  * This function will find the color in the current google names list and increment to 

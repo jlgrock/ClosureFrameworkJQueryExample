@@ -7,79 +7,58 @@
 	<packaging>war</packaging>
 
 	<properties>
-		<jsframework.version>1.17.0</jsframework.version>
+		<jsframework.version>1.17.1-SNAPSHOT</jsframework.version>
 	</properties>
-	
+
 	<build>
 		<plugins>
-            <!-- Details to the maven infrastructure which versions of the
-             plugins to use.
-             
-             By default:
-             - all source should go in ${project}/src/main/javascript.
-             - all test source should go into ${project}/src/test/javascript
-             
-             This all that is required to define the jsar lifecycle and extensions 
-             to the war/jar lifecycles.
-             -->
+			<!-- Details to the maven infrastructure which versions of the plugins 
+				to use. By default: - all source should go in ${project}/src/main/javascript. 
+				- all test source should go into ${project}/src/test/javascript This all 
+				that is required to define the jsar lifecycle and extensions to the war/jar 
+				lifecycles. -->
 			<plugin>
 				<groupId>com.github.jlgrock.javascript-framework</groupId>
 				<artifactId>jsar-maven-plugin</artifactId>
 				<version>${jsframework.version}</version>
 				<extensions>true</extensions>
 			</plugin>
-            
-            <!-- 
-             Downloads the pre-packaged version of the closure library to
-             the designated location within the target directory.
-             You can add/adjust this section if you need to adjust the 
-             default version of the closure library.
-             
-			<plugin>
-				<groupId>com.github.jlgrock.javascript-framework</groupId>
-				<artifactId>jsdependency-maven-plugin</artifactId>
-				<version>${jsframework.version}</version>
-			</plugin>
-             -->
-            
-            <!-- 
-             Compiles the code using the Closure Compiler.
-             
-             You can add/adjust this section if you need to adjust the 
-             default version of the closure library.
-            
-            <plugin>
+
+			<!-- Downloads the pre-packaged version of the closure library to the 
+				designated location within the target directory. You can add/adjust this 
+				section if you need to adjust the default version of the closure library. 
+				<plugin> <groupId>com.github.jlgrock.javascript-framework</groupId> <artifactId>jsdependency-maven-plugin</artifactId> 
+				<version>${jsframework.version}</version> </plugin> -->
+
+			<!-- Compiles the code using the Closure Compiler. You can add/adjust 
+				this section if you need to adjust the default version of the closure library or if you want to set some define objects. -->
+			<!-- <plugin>
 				<groupId>com.github.jlgrock.javascript-framework</groupId>
 				<artifactId>closure-compiler-maven-plugin</artifactId>
 				<version>${jsframework.version}</version>
-			</plugin>
-            -->
-            
-            <!-- Testing maven plugin - Generates and parses test files which
-             are, by default, put into the ${project}/src/test/javascript
-             directory.
-             
-             You can add/adjust this section if you need to adjust the 
-             testing settings.
-             
-			<plugin>
-				<groupId>com.github.jlgrock.javascript-framework</groupId>
-				<artifactId>closure-testing-maven-plugin</artifactId>
-				<version>${jsframework.version}</version>
-			</plugin>
-            -->
-            
-            <!-- 
-            Plugin that will remove certain sections of the code, based on users settings.  
-            This is currently set to remove $$assert(*);  If you don't include a $$assert, this
-            does nothing.
-             
-            <plugin>
-				<groupId>com.github.jlgrock.javascript-framework</groupId>
-				<artifactId>jspreprocessor-maven-plugin</artifactId>
-				<version>${jsframework.version}</version>
-			</plugin>
-			-->			
+				<configuration>
+					<defines>
+						<define>
+							<defineName>TESTING.ENABLED</defineName>
+							<value>false</value>
+							<valueType>boolean</valueType>
+						</define>
+					</defines>
+				</configuration>
+			</plugin> -->
+
+
+			<!-- Testing maven plugin - Generates and parses test files which are, 
+				by default, put into the ${project}/src/test/javascript directory. You can 
+				add/adjust this section if you need to adjust the testing settings. <plugin> 
+				<groupId>com.github.jlgrock.javascript-framework</groupId> <artifactId>closure-testing-maven-plugin</artifactId> 
+				<version>${jsframework.version}</version> </plugin> -->
+
+			<!-- Plugin that will remove certain sections of the code, based on users 
+				settings. This is currently set to remove $$assert(*); If you don't include 
+				a $$assert, this does nothing. <plugin> <groupId>com.github.jlgrock.javascript-framework</groupId> 
+				<artifactId>jspreprocessor-maven-plugin</artifactId> <version>${jsframework.version}</version> 
+				</plugin> -->
 
 			<!-- publishes the jsdocs -->
 			<plugin>
